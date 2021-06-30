@@ -1,2 +1,2 @@
 # todo-react
-Todo written in React with a class and functional approach.
+Todo written in React with a classes and hooks.
