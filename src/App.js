@@ -23,16 +23,15 @@ const App = () => {
     }
 
     const removeTask = (id) => {
-        const prevState = todos.slice();
-        const newState = prevState.filter(todo => todo.id !== id);
-        newState.map((todo, index) => todo.id = index);
-        setTodos(newState);
+        const state = todos.filter(todo => todo.id !== id);
+        state.map((todo, index) => todo.id = index);
+        setTodos(state);
     }
 
     const removeExecutedTask = (data) => {
-        const newState = data.filter(todo => todo.complete === false);
-        newState.map((todo, index) => todo.id = index);
-        setTodos(newState);
+        const state = data.filter(todo => todo.complete === false);
+        state.map((todo, index) => todo.id = index);
+        setTodos(state);
     }
 
     const toggleModal = () => {
