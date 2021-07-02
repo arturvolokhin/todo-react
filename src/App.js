@@ -23,27 +23,27 @@ class App extends React.Component {
     executeTask = (id) => {     
         const state = this.state.todos.slice();
         state[id].complete = !state[id].complete;
+        
         this.setState({
             todos: state
         })
     }
 
     removeTask = (id) => {
-        const prevState = this.state.todos.slice();
-        const newState = prevState.filter(todo => todo.id !== id);
-        newState.map((todo, index) => todo.id = index);
+        const state = this.state.todos.filter(todo => todo.id !== id);
+        state.map((todo, index) => todo.id = index);
        
         this.setState({
-            todos: newState
+            todos: state
         })
     }
 
     removeExecutedTask = (data) => {
-        const newState = data.filter(todo => todo.complete === false);
-        newState.map((todo, index) => todo.id = index);
+        const state = data.filter(todo => todo.complete === false);
+        state.map((todo, index) => todo.id = index);
         
         this.setState({
-            todos: newState
+            todos: state
         })
     }
 
