@@ -11,6 +11,7 @@ p, input {
 }
 
 .wrapper {
+    position: relative;
     margin: 150px auto;
     padding: 10px;
     border: 1px solid #ccc;
@@ -48,5 +49,22 @@ header {
     display: flex;
     justify-content: space-between;
 }
-  
- 
+
+.modal-history {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.toggle {
+    display: block;
+}
+
+.history-list {
+    color: #fff;
+}

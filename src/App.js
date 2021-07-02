@@ -4,12 +4,15 @@ import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm';
 import TodoCounter from './components/TodoCounter';
 import TodoRemoveExecuted from './components/TodoRemoveExecuted';
+import TodoModalButton from './components/TodoModalButton';
+import TodoModalHistory from './components/TodoModalHistory';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: []
+            todos: [],
+            toggle: false,
         } 
     }
 
@@ -47,16 +50,28 @@ class App extends React.Component {
         })
     }
 
+    toggleModal = () => {
+        this.setState({
+            toggle: !this.state.toggle
+        })
+    }
+
  
 
     render() {
-        const {todos} = this.state;
+        const {todos, toggle} = this.state;
         return (
             <>
                 <div className='wrapper'>
+                    <TodoModalHistory 
+                        value={toggle} 
+                        toggleModal={this.toggleModal}
+                        data={todos}
+                    />
                     <header>
                         <TodoCounter count={todos.length}/>
                         <TodoForm addTask={this.addTask}/>
+                        <TodoModalButton toggleModal={this.toggleModal}/>
                         <TodoRemoveExecuted 
                             data={todos} 
                             removeExecutedTask={this.removeExecutedTask}
